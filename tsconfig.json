@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"jsx": "react",
+		"noEmit": true,
+		"noEmitHelpers": true,
+		"noEmitOnError": true,
+		"noImplicitAny": false,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"removeComments": false,
+		"target": "es6",
+		"baseUrl": ".",
+		"types": [
+			"node",
+			"react-dom",
+			"jest"
+		]
+	},
+	"exclude": [
+		"node_modules"
+	]
+}

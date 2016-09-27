@@ -1,0 +1,20 @@
+{
+	"automock": true,
+	"moduleFileExtensions": [
+		"ts",
+		"tsx",
+		"js",
+		"json"
+	],
+	"notify": true,
+	"scriptPreprocessor": "<rootDir>/testHelpers/preprocessor.js",
+	"setupTestFrameworkScriptFile": "<rootDir>/testHelpers/environmentSetup.js",
+	"testRegex": "Spec.tsx?$",
+	"unmockedModulePathPatterns": [
+		"<rootDir>/testHelpers",
+		"<rootDir>/node_modules/enzyme",
+		"<rootDir>/node_modules/ts-jest",
+		"<rootDir>/node_modules/react",
+		"<rootDir>/node_modules/bluebird"
+	]
+}

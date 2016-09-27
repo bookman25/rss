@@ -1,0 +1,40 @@
+{
+	"extends": "tslint:recommended",
+	"rules": {
+		"eofline": false,
+		"no-console": [
+			false
+		],
+		"object-literal-sort-keys": false,
+		"declare-class-methods-after-use": true,
+		"jsx-attribute-spacing": true,
+		"jsx-expression-spacing": true,
+		"jsx-no-braces-for-string-attributes": true,
+		"react-lifecycle-order": true,
+		"sort-imports": true,
+		"prefer-or-operator-over-ternary": true,
+		"camel-case-local-functions": true,
+		"no-unnecessary-bind": true,
+		"no-unnecessary-local-variable": true,
+		"no-unnecessary-semicolons": true,
+		"prefer-array-literal": true,
+		"prefer-const": true,
+		"react-unused-props-and-state": true,
+		"trailing-comma": false,
+		"semicolon": [
+			true
+		],
+		"indent": [
+			true,
+			"tabs"
+		],
+		"quotemark": [
+			true,
+			"single"
+		]
+	},
+	"rulesDirectory": [
+		"./node_modules/tslint-misc-rules/rules",
+		"./node_modules/tslint-microsoft-contrib"
+	]
+}
