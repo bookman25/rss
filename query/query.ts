@@ -1,6 +1,6 @@
 import * as api from 'github';
 
-interface IRepositoryConfig {
+export interface IRepositoryConfig {
 	user: string;
 	repo: string;
 }
