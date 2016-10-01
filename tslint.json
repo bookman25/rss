@@ -21,6 +21,7 @@
 		"prefer-array-literal": true,
 		"prefer-const": true,
 		"react-unused-props-and-state": true,
+		"object-literal-shorthand": true,
 		"trailing-comma": false,
 		"semicolon": [
 			true

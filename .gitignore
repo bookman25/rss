@@ -14,4 +14,4 @@ jspm_packages
 .npm
 
 *.js
-repos.json
+config.json

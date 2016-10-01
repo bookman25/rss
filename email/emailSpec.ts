@@ -1,22 +1,31 @@
 jest.unmock('./email');
 
-import * as sendmail from 'sendmail';
+import { createTransport } from 'nodemailer';
+import { SmtpOptions } from 'nodemailer-smtp-transport';
 import email from './email';
 
 describe('send email', () => {
-	const client = jest.fn();
-
-	beforeAll(() => {
-		(sendmail as jest.Mock<any>).mockReturnValue(client);
-	});
+	const sendMail = jest.fn();
+	const transport = createTransport as jest.Mock<any>;
+	const smtpSettings: SmtpOptions = {
+		auth: {
+			user: 'user@mail.com'
+		}
+	};
+	const to = 'email@address.com';
 
 	beforeEach(() => {
-		client.mockClear();
+		transport.mockClear();
+		transport.mockReturnValue({ sendMail });
+		sendMail.mockClear();
+		email({ smtpSettings, to, repositories: null });
+	});
+
+	it('creates a transporter with the smtp settings', () => {
+		expect(transport).toBeCalledWith(smtpSettings);
 	});
 
 	it(`sends using the 'to' parameter`, () => {
-		const to = 'email@address.com';
-		email({ to, repositories: null });
-		expect(client).toBeCalledWith(jasmine.objectContaining({ to }));
+		expect(sendMail).toBeCalledWith(jasmine.objectContaining({ to }));
 	});
 });

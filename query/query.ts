@@ -1,16 +1,16 @@
 import * as api from 'github';
 
-interface IRepo {
+interface IRepositoryConfig {
 	user: string;
 	repo: string;
 }
 
 export interface IQuery {
 	token?: string;
-	repos: IRepo[];
+	repositories: IRepositoryConfig[];
 }
 
-export default function ({ token, repos }: IQuery) {
+export default function ({ token, repositories }: IQuery) {
 	const github = new api({
 		debug: false,
 		host: 'api.github.com',
@@ -26,7 +26,7 @@ export default function ({ token, repos }: IQuery) {
 		});
 	}
 
-	return Promise.all(repos.map(repo => {
+	return Promise.all(repositories.map(repo => {
 		const commitInfo = github.gitdata.getReference(Object.assign({
 			ref: 'heads/master',
 		}, repo)).then(latestCommit => github.gitdata.getCommit(Object.assign({

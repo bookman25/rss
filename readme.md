@@ -1,13 +1,22 @@
 # github-feed
 
-Create file `./repos.json` with array of repositories for which you want to monitor
+Create file `./config.json` with array of repositories for which you want to monitor
 ```
-[
-	{
-		"user": "bookman25"
-		"repo": "github-feed"
-	}
-]
+{
+	"smtp": {
+		"host": "mail.gmail.com",
+		"port": 25,
+		"auth": {
+			"user": "user@gmail.com",
+			"pass": "password"
+		}
+	},
+	"repositories": [
+		{
+			"user": "bookman25"
+			"repo": "github-feed"
+		}
+	]
 ```
 
 ```

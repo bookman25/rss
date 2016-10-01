@@ -6,7 +6,7 @@ import query, { IQuery } from './query';
 describe('github queries', () => {
 	it('should not authenticate when no token is used', () => {
 		const data: IQuery = {
-			repos: []
+			repositories: []
 		};
 		return query(data).then(() => {
 			expect(api.prototype.authenticate).not.toBeCalled();
@@ -16,7 +16,7 @@ describe('github queries', () => {
 	it('should authenticate with token', () => {
 		const token = 'value';
 		const data: IQuery = {
-			repos: [],
+			repositories: [],
 			token
 		};
 		return query(data).then(() => {

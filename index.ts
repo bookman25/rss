@@ -4,7 +4,7 @@ import { usage } from 'yargs';
 import email from './email/email';
 import query from './query/query';
 
-const { argv: { r: to, t: token, repos } } = usage('Usage: $0 -r [email]')
+const { argv: { r: to, t: token, config } } = usage('Usage: $0 -r [email]')
 	.option('r', {
 		alias: 'recipient',
 		describe: 'Recipient email adress',
@@ -17,15 +17,15 @@ const { argv: { r: to, t: token, repos } } = usage('Usage: $0 -r [email]')
 		describe: 'private github token used to increase rate-limit for github apis',
 		type: 'string'
 	})
-	.coerce('repos', path => jsonfile.readFileSync(path))
-	.default('repos', './repos.json')
+	.coerce('config', path => jsonfile.readFileSync(path))
+	.default('config', './config.json')
 	.help('h')
 	.alias('h', 'help')
 	.example('$0 info@email.com', 'Send email for repositories')
 	.example('$0 -r info@email.com -t privateToken', '');
 
 query({
-	token: token,
-	repos: repos
-}).then(repositories => email({ to, repositories }))
+	token,
+	repositories: config.repositories
+}).then(repositories => email({ smtpSettings: config.smtp, to, repositories }))
 	.catch(console.error);
