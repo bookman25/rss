@@ -1,20 +1,16 @@
 import * as sendmail from 'sendmail';
-import getBody, { Body } from './getBody';
-
-const client = sendmail({
-	silent: true
-});
+import getBody, { Repositories } from './getBody';
 
 interface IEmail {
 	to: string;
-	data: Body;
+	repositories: Repositories;
 }
 
-export default function email({ to, data }: IEmail) {
-	client({
+export default function email({ to, repositories }: IEmail) {
+	sendmail({ silent: true })({
 		to,
 		from: to,
 		subject: 'github status check',
-		html: getBody(data)
+		html: getBody(repositories)
 	});
 }

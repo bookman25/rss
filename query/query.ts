@@ -1,5 +1,9 @@
 import * as api from 'github';
-import IRepo from '../IRepo';
+
+interface IRepo {
+	user: string;
+	repo: string;
+}
 
 export interface IQuery {
 	token?: string;

@@ -10,6 +10,7 @@
 		"jsx-attribute-spacing": true,
 		"jsx-expression-spacing": true,
 		"jsx-no-braces-for-string-attributes": true,
+		"jsx-no-closing-bracket-newline": true,
 		"react-lifecycle-order": true,
 		"sort-imports": true,
 		"prefer-or-operator-over-ternary": true,

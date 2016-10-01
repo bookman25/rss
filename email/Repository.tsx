@@ -2,20 +2,20 @@ import * as React from 'react';
 
 export interface ICommit {
 	committer: {
-		date: Date;
+		date: string;
 	};
 	message: string;
 }
 
 export interface IRelease {
-	name: string;
-	tag_name: string;
+	name?: string;
+	tag_name?: string;
 }
 
 export interface IMilestone {
 	title: string;
-	open_issues: number;
-	due_on: string;
+	open_issues?: number;
+	due_on?: string;
 }
 
 export interface IProps {
@@ -25,19 +25,23 @@ export interface IProps {
 	milestones?: IMilestone[];
 }
 
-export default function ({ repo, commit, releases, milestones }: IProps) {
+export default function Repository({ repo, commit, releases, milestones }: IProps) {
 	return <div>
 		<h2>{ repo }</h2>
-		<p>
-			<strong>Last commit date: </strong>
-			{ commit.committer.date }
-			<i> { commit.message }</i>
-		</p>
-		<p>
-			<strong>Latest release: </strong>
-			{ releases[0].name || releases[0].tag_name }
-		</p>
-		{ milestones.length > 0 &&
+		{ commit &&
+			<p>
+				<strong>Last commit date: </strong>
+				{ commit.committer.date }
+				<i> { commit.message }</i>
+			</p>
+		}
+		{ releases && releases.length > 0 &&
+			<p>
+				<strong>Latest release: </strong>
+				{ releases[0].name || releases[0].tag_name }
+			</p>
+		}
+		{ milestones && milestones.length > 0 &&
 			<p>
 				<strong>Milestones: </strong>
 				{ milestones.map((milestone, m) =>

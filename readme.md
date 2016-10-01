@@ -11,7 +11,7 @@ Create file `./repos.json` with array of repositories for which you want to moni
 ```
 
 ```
-npm start -- --to=email@address.com --github-token=token
+npm start -- -r info@email.com
 ```
 
 Run tests

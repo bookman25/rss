@@ -16,6 +16,7 @@
     "@types/yargs": "0.0.31",
     "bluebird": "^3.4.6",
     "enzyme": "^2.4.1",
+    "enzyme-to-json": "^1.1.1",
     "fbjs-scripts": "^0.7.1",
     "github": "^3.1.1",
     "jest": "^15.1.1",
@@ -36,7 +37,7 @@
   "devDependencies": {},
   "scripts": {
     "lint": "tslint --exclude node_modules/** --exclude **/*.d.ts **/*.ts **/*.tsx",
-    "start": "npm run lint && ts-node index",
+    "start": "ts-node index",
     "test": "jest --config jest.json",
     "watch-test": "npm test -- --watch"
   },
