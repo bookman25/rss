@@ -1,0 +1,12 @@
+exports[`Commit renders with data 1`] = `
+<p>
+  <strong>
+    Last commit date: 
+  </strong>
+  commit date
+  <i>
+     
+    message
+  </i>
+</p>
+`;

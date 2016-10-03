@@ -1,0 +1,23 @@
+exports[`Releases with a release name 1`] = `
+<p>
+  <strong>
+    Latest release: 
+  </strong>
+  <a
+    href="url">
+    name
+  </a>
+</p>
+`;
+
+exports[`Releases without a release name and only a tag 1`] = `
+<p>
+  <strong>
+    Latest release: 
+  </strong>
+  <a
+    href="url">
+    name
+  </a>
+</p>
+`;

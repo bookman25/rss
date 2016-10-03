@@ -13,6 +13,11 @@
 			"statements": 90
 		}
 	},
+    "globals": {
+      "__TS_CONFIG__": {
+        "noEmitHelpers": true
+      }
+    },
 	"moduleFileExtensions": [
 		"ts",
 		"tsx",

@@ -1,0 +1,69 @@
+exports[`Milestones multiple milestones 1`] = `
+<p>
+  <strong>
+    Milestones: 
+  </strong>
+  <span>
+    <i>
+      <a
+        href="url">
+        Milestone 1
+      </a>
+    </i>
+     (open: 
+    1
+    )
+  </span>
+  <span>
+     | 
+    <i>
+      <a
+        href="url2">
+        Milestone 2
+      </a>
+    </i>
+     (open: 
+    1
+    )
+  </span>
+</p>
+`;
+
+exports[`Milestones with due date 1`] = `
+<p>
+  <strong>
+    Milestones: 
+  </strong>
+  <span>
+    <i>
+      <a
+        href="url">
+        Milestone 1
+      </a>
+    </i>
+     (open: 
+    1
+    , due: due date
+    )
+  </span>
+</p>
+`;
+
+exports[`Milestones without due date 1`] = `
+<p>
+  <strong>
+    Milestones: 
+  </strong>
+  <span>
+    <i>
+      <a
+        href="url">
+        Milestone 1
+      </a>
+    </i>
+     (open: 
+    1
+    )
+  </span>
+</p>
+`;

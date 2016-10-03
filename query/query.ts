@@ -35,6 +35,6 @@ export default function ({ token, repositories }: IQuery) {
 
 		const releaseInfo = github.repos.getReleases(repo);
 		const milestoneInfo = github.issues.getMilestones(repo);
-		return Promise.all([repo.repo, commitInfo, releaseInfo, milestoneInfo]);
+		return Promise.all([repo, commitInfo, releaseInfo, milestoneInfo]);
 	}));
 }

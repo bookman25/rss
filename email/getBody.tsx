@@ -1,8 +1,12 @@
 import * as React from 'react';
+import { ICommit } from './Commit';
+import { IMilestone } from './Milestones';
+import { IRelease } from './Releases';
+import { IRepositoryConfig } from '../query/query';
 import { renderToStaticMarkup } from 'react-dom/server';
-import Repository, { ICommit, IRelease, IMilestone } from './Repository';
+import Repository from './Repository';
 
-export type Repositories = [string, ICommit, IRelease[], IMilestone[]][];
+export type Repositories = [IRepositoryConfig, ICommit, IRelease[], IMilestone[]][];
 
 export default function getBody(repositories: Repositories) {
 	return renderToStaticMarkup((
