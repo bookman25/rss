@@ -33,7 +33,16 @@ export default function ({ token, repositories }: IQuery) {
 			sha: latestCommit.object.sha
 		}, repo)));
 
-		const releaseInfo = github.repos.getReleases(repo);
+		const releaseInfo = github.repos.getReleases(repo)
+			.then(releases => {
+				if (releases.length > 0) {
+					return releases;
+				}
+				return github.repos.getTags(repo).then(tags =>
+					tags.map(tag => Object.assign(tag, {
+						html_url: `https://github.com/${repo.user}/${repo.repo}/releases/tag/${tag.name}`
+					})));
+			});
 		const milestoneInfo = github.issues.getMilestones(repo);
 		return Promise.all([repo, commitInfo, releaseInfo, milestoneInfo]);
 	}));

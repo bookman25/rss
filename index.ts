@@ -19,6 +19,7 @@ const { argv: { r: to, t: token, smtp, repositories, schedule } } = usage('Usage
 	})
 	.option('s', {
 		alias: 'schedule',
+		default: '* 7 * * *',
 		describe: 'cron schedule for frequency of job',
 		type: 'string'
 	})
