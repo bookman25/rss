@@ -47,25 +47,38 @@ describe('run', () => {
 		process.stdin.pause();
 	});
 
-	it('schedules the job and emails the results', () => {
-		const repositories = [];
-		const queryResult = Promise.resolve(repositories);
-		(query as jest.Mock<any>).mockReturnValue(queryResult);
-		scheduleJobMock.mock.calls[0][1]();
-
-		return queryResult.then(() => {
-			expect(query).toBeCalled();
-			expect(email).toBeCalledWith(jasmine.objectContaining({ repositories }));
-		});
-	});
-
 	it('should not terminate on random character', () => {
-		process.stdin.emit('data', '60');
+		process.stdin.emit('data', 'q\n');
 		expect(cancel).not.toBeCalled();
 	});
 
-	it(`should terminate on 'a'`, () => {
-		process.stdin.emit('data', '61');
+	it(`should terminate on 'quit'`, () => {
+		process.stdin.emit('data', 'quit\n');
 		expect(cancel).toBeCalled();
+	});
+
+	describe('should send', () => {
+		const repositories = [];
+		const queryResult = Promise.resolve(repositories);
+		const queryMock = query as jest.Mock<any>;
+
+		beforeEach(() => {
+			queryMock.mockReturnValue(queryResult);
+			queryMock.mockClear();
+		});
+
+		it(`should send on 'enter'`, () => {
+			process.stdin.emit('data', '\n');
+			expect(queryMock).toBeCalled();
+		});
+
+		it('schedules the job and emails the results', () => {
+			scheduleJobMock.mock.calls[0][1]();
+
+			return queryResult.then(() => {
+				expect(queryMock).toBeCalled();
+				expect(email).toBeCalledWith(jasmine.objectContaining({ repositories }));
+			});
+		});
 	});
 });
