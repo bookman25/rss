@@ -23,10 +23,10 @@ Create file `./config.json` with array of repositories for which you want to mon
 ```
 
 ```
-npm start -- -r info@email.com
+yarn start -- -r info@email.com
 ```
 
 Run tests
 ```
-npm test
+yarn test
 ```
