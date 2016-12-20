@@ -25,7 +25,9 @@
 		"json"
 	],
 	"notify": true,
-	"scriptPreprocessor": "<rootDir>/testHelpers/preprocessor.js",
+	"transform": {
+		"\\.(ts|tsx)$": "<rootDir>/testHelpers/preprocessor.js"
+	},
 	"setupTestFrameworkScriptFile": "<rootDir>/testHelpers/environmentSetup.js",
 	"testRegex": "Spec.tsx?$",
 	"timers": "fake",
