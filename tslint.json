@@ -1,5 +1,4 @@
 {
-	"extends": "tslint:recommended",
 	"rules": {
 		"eofline": false,
 		"no-console": [

@@ -1,8 +1,8 @@
 {
   "name": "github-feed",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Automate checking of common repos for updates",
-  "main": "index.js",
+  "main": "main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/bookman25/github-feed.git"
@@ -10,6 +10,7 @@
   "dependencies": {
     "bluebird": "^3.4.6",
     "github": "^4.0.0",
+    "node-notifier": "^4.6.1",
     "node-schedule": "^1.1.1",
     "nodemailer": "^2.6.4",
     "react": "^15.3.2",
@@ -26,24 +27,28 @@
     "@types/react-dom": "^0.14.17",
     "@types/yargs": "0.0.32",
     "coveralls": "^2.11.14",
+    "electron": "^1.4.14",
+    "electron-builder": "^11.2.4",
     "enzyme": "^2.6.0",
     "enzyme-to-json": "^1.3.0",
     "fbjs-scripts": "^0.7.1",
     "jest": "^18.0.0",
     "minicat": "^1.0.0",
     "react-addons-test-utils": "^15.3.2",
-    "ts-jest": "^0.1.6",
+    "ts-jest": "^18.0.1",
     "ts-node": "^1.4.1",
-    "tslint": "^3.15.1",
-    "tslint-microsoft-contrib": "^2.0.12",
-    "tslint-misc-rules": "^2.6.3",
-    "typescript": "2.0.6"
+    "tslint": "^4.3.1",
+    "tslint-microsoft-contrib": "^4.0.0",
+    "tslint-misc-rules": "^2.8.1",
+    "typescript": "^2.1.5"
   },
   "scripts": {
     "ci": "yarn lint && yarn test -- --coverage && yarn coveralls",
     "coveralls": "minicat coverage/lcov.info | coveralls && rm -rf ./coverage",
     "lint": "tslint --exclude \"node_modules/**\" --exclude \"**/*.d.ts\" **/*.ts **/*.tsx",
-    "start": "ts-node index",
+    "pack": "tsc && build --dir",
+    "dist": "tsc && build --x64",
+    "start": "tsc && electron .",
     "test": "jest --config jest.json",
     "watch-test": "yarn test -- --watch"
   },
@@ -51,5 +56,11 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bookman25/github-feed/issues"
+  },
+  "build": {
+    "appId": "github.feed",
+    "win": {
+      "icon": "./rss.ico"
+    }
   }
 }

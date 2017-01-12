@@ -15,5 +15,7 @@
 	},
 	"editor.insertSpaces": false,
 	"editor.autoClosingBrackets": false,
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"jest.pathToConfig": "./jest.json",
+	"tslint.autoFixOnSave": true
 }

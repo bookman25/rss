@@ -1,10 +1,11 @@
 {
 	"compilerOptions": {
 		"jsx": "react",
-		"noEmit": true,
 		"noEmitHelpers": true,
 		"noEmitOnError": true,
 		"noImplicitAny": false,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
 		"module": "commonjs",
 		"moduleResolution": "node",
 		"removeComments": false,
