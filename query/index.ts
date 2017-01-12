@@ -16,21 +16,21 @@ export default function ({ token, repositories }: IQuery) {
 		host: 'api.github.com',
 		Promise: require('bluebird'),
 		protocol: 'https',
-		followRedirects: false
+		followRedirects: false,
 	});
 
 	if (token) {
 		github.authenticate({
 			type: 'token',
-			token
+			token,
 		});
 	}
 
-	return Promise.all(repositories.map(repo => {
+	return Promise.all(repositories.filter(r => !!r.user && !!r.repo).map(repo => {
 		const commitInfo = github.gitdata.getReference(Object.assign({
 			ref: 'heads/master',
 		}, repo)).then(latestCommit => github.gitdata.getCommit(Object.assign({
-			sha: latestCommit.object.sha
+			sha: latestCommit.object.sha,
 		}, repo)));
 
 		const releaseInfo = github.repos.getReleases(repo)
@@ -40,7 +40,7 @@ export default function ({ token, repositories }: IQuery) {
 				}
 				return github.repos.getTags(repo).then(tags =>
 					tags.map(tag => Object.assign(tag, {
-						html_url: `https://github.com/${repo.user}/${repo.repo}/releases/tag/${tag.name}`
+						html_url: `https://github.com/${repo.user}/${repo.repo}/releases/tag/${tag.name}`,
 					})));
 			});
 		const milestoneInfo = github.issues.getMilestones(repo);

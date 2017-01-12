@@ -1,16 +1,17 @@
-jest.unmock('./email');
+jest.unmock('./index');
 
 import { createTransport } from 'nodemailer';
-import { SmtpOptions } from 'nodemailer-smtp-transport';
-import email from './email';
+import { ISmtp } from '../config';
+import email from './';
 
 describe('send email', () => {
 	const sendMail = jest.fn();
 	const transport = createTransport as jest.Mock<any>;
-	const smtpSettings: SmtpOptions = {
-		auth: {
-			user: 'user@mail.com'
-		}
+	const smtpSettings: ISmtp = {
+		host: '',
+		port: null,
+		user: 'user@mail.com',
+		password: '',
 	};
 	const to = 'email@address.com';
 
@@ -22,7 +23,14 @@ describe('send email', () => {
 	});
 
 	it('creates a transporter with the smtp settings', () => {
-		expect(transport).toBeCalledWith(smtpSettings);
+		expect(transport).toBeCalledWith({
+			host: smtpSettings.host,
+			port: smtpSettings.port,
+			auth: {
+				user: smtpSettings.user,
+				password: smtpSettings.password,
+			},
+		});
 	});
 
 	it(`sends using the 'to' parameter`, () => {

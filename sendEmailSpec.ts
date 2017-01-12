@@ -1,30 +1,30 @@
-jest.unmock('./index');
-jest.mock('yargs', () => {
-	let exampleReturned = false;
-	return {
-		usage: jest.fn().mockReturnThis(),
-		option: jest.fn().mockReturnThis(),
-		config: jest.fn().mockReturnThis(),
-		default: jest.fn().mockReturnThis(),
-		help: jest.fn().mockReturnThis(),
-		alias: jest.fn().mockReturnThis(),
-		example: jest.fn(function () {
-			if (!exampleReturned) {
-				exampleReturned = true;
-				return this;
-			}
-			return {
-				argv: {
-					config: {}
+jest.unmock('./sendEmail')
+	.mock('yargs', () => {
+		let exampleReturned = false;
+		return {
+			usage: jest.fn().mockReturnThis(),
+			option: jest.fn().mockReturnThis(),
+			config: jest.fn().mockReturnThis(),
+			default: jest.fn().mockReturnThis(),
+			help: jest.fn().mockReturnThis(),
+			alias: jest.fn().mockReturnThis(),
+			example: jest.fn(function () {
+				if (!exampleReturned) {
+					exampleReturned = true;
+					return this;
 				}
-			};
-		})
-	};
-});
+				return {
+					argv: {
+						config: {},
+					},
+				};
+			}),
+		};
+	});
 
 import { scheduleJob, Job } from 'node-schedule';
-import email from './email/email';
-import query from './query/query';
+import email from './email';
+import query from './query';
 
 describe('run', () => {
 	const scheduleJobMock = scheduleJob as jest.Mock<any>;
@@ -36,7 +36,7 @@ describe('run', () => {
 		job = new Job('');
 		job.cancel = cancel;
 		scheduleJobMock.mockReturnValue(job);
-		require('./index');
+		require('./sendEmail');
 	});
 
 	beforeEach(() => {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ICommit } from './Commit';
 import { IMilestone } from './Milestones';
 import { IRelease } from './Releases';
-import { IRepositoryConfig } from '../query/query';
+import { IRepositoryConfig } from '../query';
 import { renderToStaticMarkup } from 'react-dom/server';
 import Repository from './Repository';
 
@@ -17,7 +17,7 @@ export default function getBody(repositories: Repositories) {
 					repo={ repo }
 					commit={ commit }
 					releases={ releases }
-					milestones={ milestones } />
+					milestones={ milestones } />,
 			) }
 		</div>
 	));

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IRepositoryConfig } from '../query/query';
+import { IRepositoryConfig } from '../query';
 import Commit, { ICommit } from './Commit';
 import Milestones, { IMilestone } from './Milestones';
 import Releases, { IRelease } from './Releases';

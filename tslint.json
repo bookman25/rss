@@ -22,7 +22,12 @@
 		"react-unused-props-and-state": true,
 		"no-empty": false,
 		"object-literal-shorthand": true,
-		"trailing-comma": false,
+		"trailing-comma": [
+			true,
+			{
+				"multiline": "always"
+			}
+		],
 		"semicolon": [
 			true
 		],

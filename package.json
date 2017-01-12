@@ -2,12 +2,15 @@
   "name": "github-feed",
   "version": "1.0.0",
   "description": "Automate checking of common repos for updates",
-  "main": "main.js",
+  "main": "electron/main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/bookman25/github-feed.git"
   },
   "dependencies": {
+    "@types/aphrodite": "^0.5.4",
+    "@types/electron": "^1.4.31",
+    "aphrodite": "^1.1.0",
     "bluebird": "^3.4.6",
     "github": "^4.0.0",
     "node-notifier": "^4.6.1",
@@ -15,16 +18,17 @@
     "nodemailer": "^2.6.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "tslib": "^1.5.0",
     "yargs": "^6.0.0"
   },
   "devDependencies": {
     "@types/enzyme": "^2.4.36",
-    "@types/jest": "^15.1.32",
+    "@types/jest": "^16.0.4",
     "@types/node": "^6.0.42",
     "@types/node-schedule": "0.0.34",
     "@types/nodemailer": "^1.3.32",
-    "@types/react": "^0.14.38",
-    "@types/react-dom": "^0.14.17",
+    "@types/react": "^15.0.0",
+    "@types/react-dom": "^0.14.20",
     "@types/yargs": "0.0.32",
     "coveralls": "^2.11.14",
     "electron": "^1.4.14",
@@ -36,7 +40,6 @@
     "minicat": "^1.0.0",
     "react-addons-test-utils": "^15.3.2",
     "ts-jest": "^18.0.1",
-    "ts-node": "^1.4.1",
     "tslint": "^4.3.1",
     "tslint-microsoft-contrib": "^4.0.0",
     "tslint-misc-rules": "^2.8.1",
@@ -60,7 +63,7 @@
   "build": {
     "appId": "github.feed",
     "win": {
-      "icon": "./rss.ico"
+      "icon": "electron/rss.ico"
     }
   }
 }

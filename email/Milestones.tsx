@@ -18,12 +18,12 @@ export default function Milestones({ milestones }: IMilestones) {
 
 	return <p>
 		<strong>Milestones: </strong>
-		{ milestones.map((milestone, m) =>
+		{ milestones.map((milestone, m) => (
 			<span key={ m }>
 				{ m !== 0 && ' | ' }
 				<i><a href={ milestone.html_url }>{ milestone.title }</a></i> (open: { milestone.open_issues }
 				{ milestone.due_on && `, due: ${milestone.due_on}` })
 			</span>
-		) }
+		)) }
 	</p>;
 }

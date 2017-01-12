@@ -1,4 +1,3 @@
-require('../tsHelpers');
 const uncaughtExceptionHandler = onError.bind(null, 'Uncaught Exception');
 const uncaughtRejectionHandler = onError.bind(null, 'Unhandled Promise Rejection');
 

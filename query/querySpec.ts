@@ -1,17 +1,17 @@
-jest.unmock('./query');
+jest.unmock('./index');
 jest.mock('github', () => () => ({
 	authenticate,
 	gitdata: {
 		getReference,
-		getCommit
+		getCommit,
 	},
 	repos: {
 		getReleases,
-		getTags
+		getTags,
 	},
 	issues: {
-		getMilestones
-	}
+		getMilestones,
+	},
 }));
 const authenticate = jest.fn();
 const getReference = jest.fn();
@@ -20,7 +20,7 @@ const getReleases = jest.fn();
 const getMilestones = jest.fn();
 const getTags = jest.fn();
 
-import query, { IRepositoryConfig } from './query';
+import query, { IRepositoryConfig } from './';
 
 describe('github queries', () => {
 	beforeEach(() => {
@@ -50,12 +50,12 @@ describe('github queries', () => {
 	describe('', () => {
 		const repositories: IRepositoryConfig[] = [{
 			user: 'user',
-			repo: 'repo'
+			repo: 'repo',
 		}];
 		const latestCommit = {
 			object: {
-				sha: 'hash'
-			}
+				sha: 'hash',
+			},
 		};
 		const commitInfo = {};
 

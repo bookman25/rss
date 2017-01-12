@@ -13,7 +13,8 @@ module.exports = {
                 compilerOptions: {
                     module: tsc.ModuleKind.CommonJS,
                     jsx: tsc.JsxEmit.React,
-                    noEmitHelpers: true
+                    noEmitHelpers: true,
+                    importHelpers: true
                 },
                 fileName: path
             }

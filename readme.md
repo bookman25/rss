@@ -3,27 +3,13 @@
 
 # github-feed
 
-Create file `./config.json` with array of repositories for which you want to monitor
-```
-{
-	"smtp": {
-		"host": "mail.gmail.com",
-		"port": 25,
-		"auth": {
-			"user": "user@gmail.com",
-			"pass": "password"
-		}
-	},
-	"repositories": [
-		{
-			"user": "bookman25"
-			"repo": "github-feed"
-		}
-	]
-```
+Used to create an rss like feed email to report status of monitored repositories.
+It can do scheduled or on-demand emails.
+
+![](screenshot.png)
 
 ```
-yarn start -- -r info@email.com
+yarn start
 ```
 
 Run tests
