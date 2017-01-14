@@ -1,12 +1,12 @@
-import { app, Menu, Tray, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import { configChannel } from './channels';
 import { loadConfig } from '../config';
+import { loadTray } from './loadTray';
 import { scheduleJob } from 'node-schedule';
 import { sendEmail } from '../email/sendEmail';
 import path = require('path');
 import url = require('url');
 
-let tray: Electron.Tray;
 let mainWindow: Electron.BrowserWindow;
 let config = loadConfig();
 let isQuiting = false;
@@ -20,7 +20,10 @@ app.on('ready', () => {
 	if (config.repositories.length === 0) {
 		editConfig();
 	}
-	buildTray();
+	loadTray(editConfig, send, () => {
+		isQuiting = true;
+		app.quit();
+	});
 });
 
 app.on('quit', () => {
@@ -34,8 +37,12 @@ function updateSchedule() {
 		job.cancel();
 	}
 	if (config.schedule) {
-		return scheduleJob(config.schedule, () => sendEmail(config));
+		return scheduleJob(config.schedule, send);
 	}
+}
+
+function send() {
+	sendEmail(config);
 }
 
 function editConfig() {
@@ -61,27 +68,4 @@ function editConfig() {
 		protocol: 'file:',
 		slashes: true,
 	}));
-}
-
-function buildTray() {
-	tray = new Tray(path.resolve(__dirname, 'rss.ico'));
-	const menu = Menu.buildFromTemplate([
-		{
-			label: 'Send Email',
-			click: () => sendEmail(config),
-		},
-		{
-			label: 'Edit Config',
-			click: editConfig,
-		},
-		{
-			label: 'Close',
-			click: () => {
-				isQuiting = true;
-				app.quit();
-			},
-		},
-	]);
-	tray.on('double-click', editConfig);
-	tray.setContextMenu(menu);
 }

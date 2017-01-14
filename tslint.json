@@ -14,6 +14,7 @@
 		"sort-imports": true,
 		"prefer-or-operator-over-ternary": true,
 		"camel-case-local-functions": true,
+		"no-debugger": true,
 		"no-unnecessary-bind": true,
 		"no-unnecessary-local-variable": true,
 		"no-unnecessary-semicolons": true,

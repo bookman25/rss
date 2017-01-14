@@ -1,6 +1,7 @@
 const BrowserWindow = jest.fn();
 BrowserWindow.prototype.on = jest.fn();
 BrowserWindow.prototype.loadURL = jest.fn();
+BrowserWindow.prototype.show = jest.fn();
 
 const Tray = jest.fn();
 Tray.prototype.on = jest.fn();
@@ -9,6 +10,7 @@ Tray.prototype.setContextMenu = jest.fn();
 export = {
 	app: {
 		on: jest.fn(),
+		quit: jest.fn(),
 	},
 	BrowserWindow,
 	ipcRenderer: {
