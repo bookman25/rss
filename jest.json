@@ -33,9 +33,11 @@
 	"timers": "fake",
 	"unmockedModulePathPatterns": [
 		"<rootDir>/testHelpers",
+		"<rootDir>/node_modules/aphrodite",
+		"<rootDir>/node_modules/bluebird",
 		"<rootDir>/node_modules/enzyme",
 		"<rootDir>/node_modules/ts-jest",
-		"<rootDir>/node_modules/react",
-		"<rootDir>/node_modules/bluebird"
+		"<rootDir>/node_modules/tslib",
+		"<rootDir>/node_modules/react"
 	]
 }

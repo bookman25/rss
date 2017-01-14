@@ -1,3 +1,4 @@
+const aphrodite = require('aphrodite');
 const uncaughtExceptionHandler = onError.bind(null, 'Uncaught Exception');
 const uncaughtRejectionHandler = onError.bind(null, 'Unhandled Promise Rejection');
 
@@ -32,3 +33,4 @@ function catchLoggedWarningsAndThrow(originalLog) {
 	}
 	originalLog.apply(this, Array.from(arguments).slice(1));
 }
+aphrodite.StyleSheetTestUtils.suppressStyleInjection();

@@ -23,6 +23,12 @@ app.on('ready', () => {
 	buildTray();
 });
 
+app.on('quit', () => {
+	if (job) {
+		job.cancel();
+	}
+});
+
 function updateSchedule() {
 	if (job) {
 		job.cancel();
@@ -41,7 +47,8 @@ function editConfig() {
 	mainWindow
 		.on('closed', () => {
 			mainWindow = null;
-		})
+		});
+	mainWindow
 		.on('close', event => {
 			if (!isQuiting) {
 				event.preventDefault();
@@ -78,9 +85,3 @@ function buildTray() {
 	tray.on('double-click', editConfig);
 	tray.setContextMenu(menu);
 }
-
-app.on('quit', () => {
-	if (job) {
-		job.cancel();
-	}
-});
