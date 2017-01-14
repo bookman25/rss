@@ -1,8 +1,8 @@
 import { app, Menu, Tray, BrowserWindow, ipcMain } from 'electron';
-import { configChannel } from '../channels';
+import { configChannel } from './channels';
 import { loadConfig } from '../config';
 import { scheduleJob } from 'node-schedule';
-import { sendEmail } from '../sendEmail';
+import { sendEmail } from '../email/sendEmail';
 import path = require('path');
 import url = require('url');
 

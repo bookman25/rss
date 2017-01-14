@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { configChannel } from '../channels';
+import { configChannel } from './channels';
 import { css, StyleSheet } from 'aphrodite';
 import { Fieldset } from './Fieldset';
 import { IConfig } from '../config';

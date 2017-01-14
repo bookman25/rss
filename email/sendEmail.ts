@@ -1,7 +1,7 @@
-import { IConfig } from './config';
+import { IConfig } from '../config';
 import { notify } from 'node-notifier';
-import email from './email';
-import query from './query';
+import email from './';
+import query from '../query';
 
 export const sendEmail = (config: IConfig) => {
 	const { token, repositories, smtpSettings, to } = config;
