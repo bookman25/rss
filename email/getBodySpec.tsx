@@ -1,8 +1,8 @@
 jest.unmock('./getBody');
 
 import * as React from 'react';
-import getBody, { Repositories } from './getBody';
-import Repository from './Repository';
+import { getBody, Repositories } from './getBody';
+import { Repository } from './Repository';
 
 describe('body of email', () => {
 	const repository = Repository as jest.Mock<any>;

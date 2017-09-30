@@ -1,9 +1,9 @@
 jest.unmock('./Repository');
 
 import * as React from 'react';
+import { Repository } from './Repository';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Repository from './Repository';
 
 describe('Respository template', () => {
 	it('repository name when no other data', () => {

@@ -1,9 +1,9 @@
 jest.unmock('./Milestones');
 
 import * as React from 'react';
+import { Milestones, IMilestone } from './Milestones';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Milestones, { IMilestone } from './Milestones';
 
 describe('Milestones', () => {
 	const milestone1: IMilestone = {

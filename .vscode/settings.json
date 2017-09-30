@@ -18,5 +18,6 @@
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"jest.pathToConfig": "./jest.json",
 	"tslint.autoFixOnSave": true,
-	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+	"tslint.alwaysShowRuleFailuresAsWarnings": true
 }

@@ -10,7 +10,7 @@ export interface IQuery {
 	repositories: IRepositoryConfig[];
 }
 
-export default function ({ token, repositories }: IQuery) {
+export function query({ token, repositories }: IQuery) {
 	const github = new api({
 		debug: false,
 		host: 'api.github.com',

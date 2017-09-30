@@ -10,14 +10,16 @@ export interface IRelease {
 	tag_name?: string;
 }
 
-export default function Release({ releases }: IReleases) {
+export function Releases({ releases }: IReleases) {
 	if (!releases || releases.length === 0) {
 		return null;
 	}
 
 	const release = releases[0];
-	return <p>
-		<strong>Latest release: </strong>
-		<a href={ release.html_url }>{ release.name || release.tag_name }</a>
-	</p>;
+	return (
+		<p>
+			<strong>Latest release: </strong>
+			<a href={ release.html_url }>{ release.name || release.tag_name }</a>
+		</p>
+	);
 }

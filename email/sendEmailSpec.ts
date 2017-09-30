@@ -1,9 +1,9 @@
 jest.unmock('./sendEmail');
 
+import { email } from './';
 import { IConfig } from '../config';
+import { query } from '../query';
 import { sendEmail } from './sendEmail';
-import email from './';
-import query from '../query';
 
 describe('should send', () => {
 	const results = [];

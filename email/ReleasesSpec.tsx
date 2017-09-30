@@ -1,9 +1,9 @@
 jest.unmock('./Releases');
 
 import * as React from 'react';
+import { Releases } from './Releases';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Releases from './Releases';
 
 describe('Releases', () => {
 	it('with no releases', () => {

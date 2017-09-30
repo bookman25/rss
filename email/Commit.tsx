@@ -7,10 +7,12 @@ export interface ICommit {
 	message: string;
 }
 
-export default function Commit(commit: ICommit) {
-	return <p>
-		<strong>Last commit date: </strong>
-		{ commit.committer.date }
-		<i> { commit.message }</i>
-	</p>;
+export function Commit(commit: ICommit) {
+	return (
+		<p>
+			<strong>Last commit date: </strong>
+			{ commit.committer.date }
+			<i> { commit.message }</i>
+		</p>
+	);
 }

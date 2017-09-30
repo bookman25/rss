@@ -20,7 +20,7 @@ const getReleases = jest.fn();
 const getMilestones = jest.fn();
 const getTags = jest.fn();
 
-import query, { IRepositoryConfig } from './';
+import { query, IRepositoryConfig } from './';
 
 describe('github queries', () => {
 	beforeEach(() => {

@@ -1,8 +1,8 @@
 jest.unmock('./index');
 
 import { createTransport } from 'nodemailer';
+import { email } from './';
 import { ISmtp } from '../config';
-import email from './';
 
 describe('send email', () => {
 	const sendMail = jest.fn();
@@ -28,7 +28,7 @@ describe('send email', () => {
 			port: smtpSettings.port,
 			auth: {
 				user: smtpSettings.user,
-				password: smtpSettings.password,
+				pass: smtpSettings.password,
 			},
 		});
 	});

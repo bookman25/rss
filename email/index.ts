@@ -1,6 +1,7 @@
 import { createTransport } from 'nodemailer';
+import { getBody, Repositories } from './getBody';
 import { ISmtp } from '../config';
-import getBody, { Repositories } from './getBody';
+import { SmtpOptions } from 'nodemailer-smtp-transport';
 
 export interface IEmail {
 	smtpSettings: ISmtp;
@@ -8,16 +9,17 @@ export interface IEmail {
 	repositories: Repositories;
 }
 
-export default function email({ smtpSettings, to, repositories }: IEmail) {
-	const transporter = createTransport({
+export function email({ smtpSettings, to, repositories }: IEmail) {
+	const options: SmtpOptions = {
 		host: smtpSettings.host,
 		port: smtpSettings.port,
 		auth: {
 			user: smtpSettings.user,
-			password: smtpSettings.password,
+			pass: smtpSettings.password,
 		},
-	} as any);
-	transporter.sendMail({
+	};
+	const transporter = createTransport(options);
+	return transporter.sendMail({
 		to,
 		from: smtpSettings.user,
 		subject: 'github status check',
