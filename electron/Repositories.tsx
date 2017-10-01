@@ -9,20 +9,20 @@ interface IProps {
 }
 
 export function Repositories(props: IProps) {
-	const editedRepos = props.repositories.filter(r => !!r.user || !!r.repo);
-	if (editedRepos.every(r => !!r.user && !!r.repo) || editedRepos.length === 0) {
-		editedRepos.push({ user: '', repo: '' });
+	const editedRepos = props.repositories.filter(r => !!r.owner || !!r.repo);
+	if (editedRepos.every(r => !!r.owner && !!r.repo) || editedRepos.length === 0) {
+		editedRepos.push({ owner: '', repo: '' });
 	}
 	return (
 		<Fieldset label='Repositories'>
 			{ editedRepos.map((repository, i) => (
 				<div key={ i }>
 					<Input
-						label='User'
-						value={ repository.user }
-						updateValue={ user => props.updateRepos([
+						label='Owner'
+						value={ repository.owner }
+						updateValue={ owner => props.updateRepos([
 							...editedRepos.slice(0, i),
-							{ user, repo: repository.repo },
+							{ owner, repo: repository.repo },
 							...editedRepos.slice(i + 1),
 						]) } />
 					<Input
@@ -30,7 +30,7 @@ export function Repositories(props: IProps) {
 						value={ repository.repo }
 						updateValue={ repo => props.updateRepos([
 							...editedRepos.slice(0, i),
-							{ user: repository.user, repo },
+							{ owner: repository.owner, repo },
 							...editedRepos.slice(i + 1),
 						]) } />
 				</div>

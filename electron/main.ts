@@ -52,6 +52,7 @@ function editConfig() {
 	}
 	mainWindow = new BrowserWindow({ icon: path.resolve(__dirname, 'rss.ico') });
 	mainWindow.setMenuBarVisibility(false);
+	mainWindow.setAutoHideMenuBar(true);
 	mainWindow
 		.on('closed', () => {
 			mainWindow = null;

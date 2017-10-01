@@ -30,8 +30,8 @@ describe('github queries', () => {
 		authenticate.mockClear();
 		getCommit.mockClear();
 		getMilestones.mockClear();
-		getReleases.mockReturnValue(Promise.resolve([{}]));
-		getMilestones.mockReturnValue(Promise.resolve());
+		getReleases.mockReturnValue(Promise.resolve({ data: [{}] }));
+		getMilestones.mockReturnValue(Promise.resolve({ data: {} }));
 	});
 
 	it('not authenticate when no token is used', () => {
@@ -49,19 +49,21 @@ describe('github queries', () => {
 
 	describe('', () => {
 		const repositories: IRepositoryConfig[] = [{
-			user: 'user',
+			owner: 'user',
 			repo: 'repo',
 		}];
 		const latestCommit = {
-			object: {
-				sha: 'hash',
+			data: {
+				object: {
+					sha: 'hash',
+				},
 			},
 		};
 		const commitInfo = {};
 
 		it('fetch latest commit for repo', () => {
 			getReference.mockReturnValue(Promise.resolve(latestCommit));
-			getCommit.mockReturnValue(Promise.resolve(commitInfo));
+			getCommit.mockReturnValue(Promise.resolve({ data: commitInfo }));
 
 			return query({ repositories }).then(result => {
 				expect(result[0][1]).toBe(commitInfo);
@@ -69,8 +71,8 @@ describe('github queries', () => {
 		});
 
 		it('should check tags if get releases has no items', () => {
-			getTags.mockReturnValue(Promise.resolve([]));
-			getReleases.mockReturnValue(Promise.resolve([]));
+			getTags.mockReturnValue(Promise.resolve({ data: [] }));
+			getReleases.mockReturnValue(Promise.resolve({ data: [] }));
 			return query({ repositories }).then(() => {
 				expect(getTags).toBeCalled();
 			});

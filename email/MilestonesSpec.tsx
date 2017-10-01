@@ -20,10 +20,11 @@ describe('Milestones', () => {
 	it('multiple milestones', () => {
 		const milestones: IMilestone[] = [
 			milestone1,
-			Object.assign({}, milestone1, {
+			{
+				...milestone1, 
 				title: 'Milestone 2',
 				html_url: 'url2',
-			}),
+			},
 		];
 		const view = shallow(<Milestones milestones={ milestones } />);
 		expect(shallowToJson(view)).toMatchSnapshot();
@@ -35,9 +36,10 @@ describe('Milestones', () => {
 	});
 
 	it('with due date', () => {
-		const milestone = Object.assign({}, milestone1, {
+		const milestone = {
+			...milestone1,
 			due_on: 'due date',
-		});
+		};
 		const view = shallow(<Milestones milestones={ [milestone] } />);
 		expect(shallowToJson(view)).toMatchSnapshot();
 	});

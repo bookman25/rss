@@ -14,7 +14,7 @@ export interface IProps {
 export function Repository({ repo, commit, releases, milestones }: IProps) {
 	return (
 		<div>
-			<h2><a href={ `https://github.com/${repo.user}/${repo.repo}` }>{ repo.repo }</a></h2>
+			<h2><a href={ `https://github.com/${repo.owner}/${repo.repo}` }>{ repo.repo }</a></h2>
 			<Commit {...commit} />
 			<Releases releases={ releases } />
 			<Milestones milestones={ milestones } />

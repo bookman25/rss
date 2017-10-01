@@ -16,3 +16,8 @@ Run tests
 ```
 yarn test
 ```
+
+Package for install
+```
+yarn dist
+```

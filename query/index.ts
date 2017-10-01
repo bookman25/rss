@@ -1,7 +1,7 @@
 import * as api from 'github';
 
 export interface IRepositoryConfig {
-	user: string;
+	owner: string;
 	repo: string;
 }
 
@@ -26,24 +26,27 @@ export function query({ token, repositories }: IQuery) {
 		});
 	}
 
-	return Promise.all(repositories.filter(r => !!r.user && !!r.repo).map(repo => {
-		const commitInfo = github.gitdata.getReference(Object.assign({
+	return Promise.all(repositories.filter(r => !!r.owner && !!r.repo).map(repo => {
+		const commitInfo = github.gitdata.getReference({
+			...repo,
 			ref: 'heads/master',
-		}, repo)).then(latestCommit => github.gitdata.getCommit(Object.assign({
+		}).then(({ data: latestCommit }) => github.gitdata.getCommit({
+			...repo,
 			sha: latestCommit.object.sha,
-		}, repo)));
+		})).then(({ data }) => data);
 
 		const releaseInfo = github.repos.getReleases(repo)
-			.then(releases => {
+			.then(({ data: releases }) => {
 				if (releases.length > 0) {
 					return releases;
 				}
-				return github.repos.getTags(repo).then(tags =>
-					tags.map(tag => Object.assign(tag, {
-						html_url: `https://github.com/${repo.user}/${repo.repo}/releases/tag/${tag.name}`,
+				return github.repos.getTags(repo).then(({ data: tags }) =>
+					tags.map(tag => ({
+						...tag,
+						html_url: `https://github.com/${repo.owner}/${repo.repo}/releases/tag/${tag.name}`,
 					})));
 			});
-		const milestoneInfo = github.issues.getMilestones(repo);
+		const milestoneInfo = github.issues.getMilestones(repo).then(({ data }) => data);
 		return Promise.all([repo, commitInfo, releaseInfo, milestoneInfo]);
 	}));
 }
