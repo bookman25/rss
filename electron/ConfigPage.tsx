@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { Checkbox } from './Fields';
 import { configChannel } from './channels';
 import { css, StyleSheet } from 'aphrodite';
 import { Fieldset } from './Fieldset';
 import { IConfig } from '../config';
-import { Input } from './Input';
+import { Input } from './Fields';
 import { ipcRenderer } from 'electron';
 import { loadConfig, saveConfig } from '../config';
 import { Repositories } from './Repositories';
@@ -38,6 +39,10 @@ export class ConfigPage extends React.Component<{}, Partial<IConfig>> {
 						placeholder='* 7 * * *'
 						value={ this.state.schedule }
 						updateValue={ schedule => this.setState({ schedule }) } />
+					<Checkbox
+						label='Show Notifications'
+						value={ this.state.showNotifications }
+						updateValue={ showNotifications => this.setState({ showNotifications }) } />
 				</Fieldset>
 				<Smtp
 					smtpSettings={ this.state.smtpSettings }

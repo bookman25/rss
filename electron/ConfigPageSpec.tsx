@@ -2,7 +2,7 @@ jest.unmock('./ConfigPage');
 
 import * as React from 'react';
 import { ConfigPage } from './ConfigPage';
-import { Input } from './Input';
+import { Input } from './Fields';
 import { ipcRenderer } from 'electron';
 import { ISmtp } from '../config';
 import { loadConfig, saveConfig } from '../config';

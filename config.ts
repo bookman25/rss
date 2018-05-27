@@ -15,6 +15,7 @@ export interface IConfig {
 	token: string;
 	schedule: string;
 	repositories: IRepositoryConfig[];
+	showNotifications: boolean;
 }
 
 const defaultConfig: IConfig = {
@@ -28,6 +29,7 @@ const defaultConfig: IConfig = {
 	},
 	repositories: [],
 	schedule: '',
+	showNotifications: true,
 };
 
 const userHome = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local');
@@ -40,7 +42,10 @@ export function loadConfig(): IConfig {
 	if (!fs.existsSync(configFile)) {
 		saveConfig(defaultConfig);
 	}
-	return JSON.parse(fs.readFileSync(configFile, 'utf-8'));
+	return {
+		...defaultConfig,
+		...JSON.parse(fs.readFileSync(configFile, 'utf-8')),
+	};
 }
 
 export function saveConfig(config: IConfig) {

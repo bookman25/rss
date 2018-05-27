@@ -20,6 +20,7 @@ describe('should send', () => {
 		},
 		schedule: '',
 		to: '',
+		showNotifications: false,
 	};
 
 	beforeEach(() => {

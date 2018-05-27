@@ -1,6 +1,6 @@
 {
   "name": "github-feed",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Automate checking of common repos for updates",
   "main": "electron/main.js",
   "repository": {

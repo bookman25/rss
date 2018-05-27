@@ -10,6 +10,9 @@ export const sendEmail = (config: IConfig) => {
 		repositories,
 	}).then(results => email({ smtpSettings, to, repositories: results }))
 		.then(() => {
+			if (!config.showNotifications) {
+				return;
+			}
 			notify({
 				title: 'Email sent',
 				message: 'At ' + new Date(),

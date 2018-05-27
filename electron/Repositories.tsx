@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Fieldset } from './Fieldset';
-import { Input } from './Input';
+import { Input } from './Fields';
 import { IRepositoryConfig } from '../query';
 
 interface IProps {

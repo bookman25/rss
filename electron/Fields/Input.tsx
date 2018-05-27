@@ -1,15 +1,7 @@
 import * as React from 'react';
-import { css, StyleSheet } from 'aphrodite';
+import { Field, FieldProps } from './Field';
 
-const styles = StyleSheet.create({
-	label: {
-		display: 'inline-block',
-		width: '100px',
-	},
-});
-
-interface IProps {
-	label: string;
+interface IProps extends FieldProps {
 	value: string;
 	updateValue(value: string): void;
 	placeholder?: string;
@@ -18,13 +10,12 @@ interface IProps {
 
 export function Input(props: IProps) {
 	return (
-		<div>
-			<span className={ css(styles.label) }>{ props.label }:</span>
+		<Field label={ props.label }>
 			<input
 				type={ props.type }
 				placeholder={ props.placeholder }
 				onChange={ e => props.updateValue(e.currentTarget.value) }
 				value={ props.value } />
-		</div>
+		</Field>
 	);
 }
