@@ -1,10 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Releases with a release name 1`] = `
 <p>
   <strong>
     Latest release: 
   </strong>
   <a
-    href="url">
+    href="url"
+  >
     name
   </a>
 </p>
@@ -16,7 +19,8 @@ exports[`Releases without a release name and only a tag 1`] = `
     Latest release: 
   </strong>
   <a
-    href="url">
+    href="url"
+  >
     name
   </a>
 </p>

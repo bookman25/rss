@@ -1,12 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Milestones multiple milestones 1`] = `
 <p>
   <strong>
     Milestones: 
   </strong>
-  <span>
+  <span
+    key="0"
+  >
     <i>
       <a
-        href="url">
+        href="url"
+      >
         Milestone 1
       </a>
     </i>
@@ -14,11 +19,14 @@ exports[`Milestones multiple milestones 1`] = `
     1
     )
   </span>
-  <span>
+  <span
+    key="1"
+  >
      | 
     <i>
       <a
-        href="url2">
+        href="url2"
+      >
         Milestone 2
       </a>
     </i>
@@ -34,10 +42,13 @@ exports[`Milestones with due date 1`] = `
   <strong>
     Milestones: 
   </strong>
-  <span>
+  <span
+    key="0"
+  >
     <i>
       <a
-        href="url">
+        href="url"
+      >
         Milestone 1
       </a>
     </i>
@@ -54,10 +65,13 @@ exports[`Milestones without due date 1`] = `
   <strong>
     Milestones: 
   </strong>
-  <span>
+  <span
+    key="0"
+  >
     <i>
       <a
-        href="url">
+        href="url"
+      >
         Milestone 1
       </a>
     </i>

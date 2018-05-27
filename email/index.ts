@@ -1,7 +1,6 @@
 import { createTransport } from 'nodemailer';
 import { getBody, Repositories } from './getBody';
 import { ISmtp } from '../config';
-import { SmtpOptions } from 'nodemailer-smtp-transport';
 
 export interface IEmail {
 	smtpSettings: ISmtp;
@@ -10,15 +9,14 @@ export interface IEmail {
 }
 
 export function email({ smtpSettings, to, repositories }: IEmail) {
-	const options: SmtpOptions = {
+	const transporter = createTransport({
 		host: smtpSettings.host,
 		port: smtpSettings.port,
 		auth: {
 			user: smtpSettings.user,
 			pass: smtpSettings.password,
 		},
-	};
-	const transporter = createTransport(options);
+	});
 	return transporter.sendMail({
 		to,
 		from: smtpSettings.user,

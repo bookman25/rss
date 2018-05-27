@@ -1,4 +1,4 @@
-import * as api from 'github';
+import * as api from '@octokit/rest';
 
 export interface IRepositoryConfig {
 	owner: string;
@@ -11,13 +11,7 @@ export interface IQuery {
 }
 
 export function query({ token, repositories }: IQuery) {
-	const github = new api({
-		debug: false,
-		host: 'api.github.com',
-		Promise: require('bluebird'),
-		protocol: 'https',
-		followRedirects: false,
-	});
+	const github = new api();
 
 	if (token) {
 		github.authenticate({
@@ -32,6 +26,7 @@ export function query({ token, repositories }: IQuery) {
 			ref: 'heads/master',
 		}).then(({ data: latestCommit }) => github.gitdata.getCommit({
 			...repo,
+			commit_sha: latestCommit.object.sha,
 			sha: latestCommit.object.sha,
 		})).then(({ data }) => data);
 

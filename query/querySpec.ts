@@ -1,5 +1,5 @@
 jest.unmock('./index');
-jest.mock('github', () => () => ({
+jest.mock('@octokit/rest', () => () => ({
 	authenticate,
 	gitdata: {
 		getReference,

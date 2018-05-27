@@ -1,4 +1,8 @@
 const aphrodite = require('aphrodite');
+const { configure } = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
+
+configure({ adapter: new Adapter() });
 const uncaughtExceptionHandler = onError.bind(null, 'Uncaught Exception');
 const uncaughtRejectionHandler = onError.bind(null, 'Unhandled Promise Rejection');
 
