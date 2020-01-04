@@ -50,9 +50,14 @@ function editConfig() {
 		mainWindow.show();
 		return;
 	}
-	mainWindow = new BrowserWindow({ icon: path.resolve(__dirname, 'rss.ico') });
+	mainWindow = new BrowserWindow({ 
+		icon: path.resolve(__dirname, 'rss.ico'),
+		webPreferences: {
+			nodeIntegration: true,
+		},
+	});
 	mainWindow.setMenuBarVisibility(false);
-	mainWindow.setAutoHideMenuBar(true);
+	mainWindow.autoHideMenuBar = true;
 	mainWindow
 		.on('closed', () => {
 			mainWindow = null;
