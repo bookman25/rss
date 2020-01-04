@@ -1,5 +1,5 @@
 import { email } from './';
-import { IConfig } from '../config';
+import { IConfig } from '../electron/config';
 import { notify } from 'node-notifier';
 import { query } from '../query';
 

@@ -1,4 +1,4 @@
-import { IRepositoryConfig } from 'query';
+import { IRepositoryConfig } from '../query';
 import fs from 'fs';
 import path from 'path';
 import electron from 'electron'

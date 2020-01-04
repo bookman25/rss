@@ -2,7 +2,7 @@ jest.unmock('./index');
 
 import { createTransport } from 'nodemailer';
 import { email } from './';
-import { ISmtp } from '../config';
+import { ISmtp } from '../electron/config';
 
 describe('send email', () => {
 	const sendMail = jest.fn();

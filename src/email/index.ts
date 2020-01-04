@@ -1,6 +1,6 @@
 import { createTransport } from 'nodemailer';
 import { getBody, Repositories } from './getBody';
-import { ISmtp } from '../config';
+import { ISmtp } from '../electron/config';
 
 export interface IEmail {
 	smtpSettings: ISmtp;

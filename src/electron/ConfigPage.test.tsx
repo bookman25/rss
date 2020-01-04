@@ -4,8 +4,7 @@ import * as React from 'react';
 import { ConfigPage } from './ConfigPage';
 import { Input } from './Fields';
 import { ipcRenderer } from 'electron';
-import { ISmtp } from '../config';
-import { loadConfig, saveConfig } from '../config';
+import { ISmtp, loadConfig, saveConfig } from './config';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { Smtp } from './Smtp';
 

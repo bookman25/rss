@@ -3,6 +3,7 @@
 		"allowSyntheticDefaultImports": true,
 		"jsx": "react",
 		"importHelpers": true,
+		"noEmit": true,
 		"noEmitHelpers": true,
 		"noEmitOnError": true,
 		"noImplicitAny": false,

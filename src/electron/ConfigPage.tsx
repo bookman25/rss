@@ -3,10 +3,9 @@ import { Checkbox } from './Fields';
 import { configChannel } from './channels';
 import { css, StyleSheet } from 'aphrodite';
 import { Fieldset } from './Fieldset';
-import { IConfig } from '../config';
+import { IConfig, loadConfig, saveConfig } from './config';
 import { Input } from './Fields';
 import { ipcRenderer } from 'electron';
-import { loadConfig, saveConfig } from '../config';
 import { Repositories } from './Repositories';
 import { Smtp } from './Smtp';
 

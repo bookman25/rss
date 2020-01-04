@@ -1,7 +1,7 @@
 jest.unmock('./main');
 
 import { app } from 'electron';
-import { loadConfig } from '../config';
+import { loadConfig } from './config';
 import { loadTray } from './loadTray';
 import { scheduleJob } from 'node-schedule';
 import { sendEmail } from '../email/sendEmail';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Fieldset } from './Fieldset';
 import { Input } from './Fields';
-import { ISmtp } from '../config';
+import { ISmtp } from './config';
 
 interface IProps {
 	smtpSettings: ISmtp;

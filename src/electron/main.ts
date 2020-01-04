@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { configChannel } from './channels';
-import { loadConfig } from '../config';
+import { loadConfig } from './config';
 import { loadTray } from './loadTray';
 import { scheduleJob } from 'node-schedule';
 import { sendEmail } from '../email/sendEmail';

@@ -1,7 +1,7 @@
 jest.unmock('./sendEmail');
 
 import { email } from './';
-import { IConfig } from '../config';
+import { IConfig } from '../electron/config';
 import { query } from '../query';
 import { sendEmail } from './sendEmail';
 
