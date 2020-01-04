@@ -1,7 +1,7 @@
 import { IRepositoryConfig } from 'query';
-import fs = require('fs');
-import path = require('path');
-import * as electron from 'electron'
+import fs from 'fs';
+import path from 'path';
+import electron from 'electron'
 
 export interface ISmtp {
 	host: string;

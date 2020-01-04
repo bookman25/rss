@@ -8,7 +8,7 @@ const Tray = jest.fn();
 Tray.prototype.on = jest.fn();
 Tray.prototype.setContextMenu = jest.fn();
 
-export = {
+module.exports = {
 	app: {
 		on: jest.fn(),
 		quit: jest.fn(),

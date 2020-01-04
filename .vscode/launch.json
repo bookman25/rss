@@ -9,9 +9,7 @@
 			"stopOnEntry": false,
 			"args": [
 				"--no-cache",
-				"-i",
-				"--config",
-				"jest.json"
+				"-i"
 			],
 			"cwd": "${workspaceRoot}",
 			"preLaunchTask": null,

@@ -1,5 +1,5 @@
 import { Menu, Tray } from 'electron';
-import path = require('path');
+import path from 'path';
 
 let tray: Electron.Tray;
 export function loadTray(editConfig: () => void, sendEmail: () => void, quit: () => void) {

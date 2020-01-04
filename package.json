@@ -16,7 +16,7 @@
     "package": "tsc && electron-packager --overwrite .",
     "dist": "tsc && build --x64",
     "start": "tsc && electron .",
-    "test": "jest --config jest.json",
+    "test": "jest",
     "watch-test": "yarn test --watch"
   },
   "author": "Bryan Nicholls",
@@ -31,6 +31,10 @@
     }
   },
   "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
     "@types/aphrodite": "^0.5.10",
     "@types/enzyme": "^3.1.10",
     "@types/jest": "^22.2.3",
@@ -46,11 +50,9 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
-    "fbjs-scripts": "^0.8.3",
-    "jest": "^22.0.0",
+    "jest": "^24.9.0",
     "minicat": "^1.0.0",
     "react-test-renderer": "^16.4.0",
-    "ts-jest": "^22.4.6",
     "tslib": "^1.10.0",
     "tslint": "^5.10.0",
     "tslint-microsoft-contrib": "^5.0.3",

@@ -14,9 +14,7 @@
 		}
 	},
 	"editor.insertSpaces": false,
-	"editor.autoClosingBrackets": false,
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"jest.pathToConfig": "./jest.json",
+	"editor.autoClosingBrackets": "never",
 	"tslint.autoFixOnSave": true,
 	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
 	"tslint.alwaysShowRuleFailuresAsWarnings": true

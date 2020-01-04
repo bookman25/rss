@@ -1,7 +1,7 @@
 jest.unmock('./config')
 	.mock('fs');
 
-import * as fs from 'fs';
+import fs from 'fs';
 import { loadConfig } from './config';
 
 describe('config', () => {

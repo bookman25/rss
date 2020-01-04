@@ -4,8 +4,8 @@ import { loadConfig } from '../config';
 import { loadTray } from './loadTray';
 import { scheduleJob } from 'node-schedule';
 import { sendEmail } from '../email/sendEmail';
-import path = require('path');
-import url = require('url');
+import path from 'path';
+import url from 'url';
 
 let mainWindow: Electron.BrowserWindow;
 let config = loadConfig();

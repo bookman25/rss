@@ -1,4 +1,4 @@
-import * as api from '@octokit/rest';
+import api from '@octokit/rest';
 
 export interface IRepositoryConfig {
 	owner: string;
