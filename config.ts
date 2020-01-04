@@ -1,6 +1,7 @@
 import { IRepositoryConfig } from 'query';
 import fs = require('fs');
 import path = require('path');
+import * as electron from 'electron'
 
 export interface ISmtp {
 	host: string;
@@ -32,7 +33,7 @@ const defaultConfig: IConfig = {
 	showNotifications: true,
 };
 
-const userHome = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local');
+const userHome = (electron.app || electron.remote.app).getPath("userData");
 const appData = path.join(userHome, 'github-feed');
 const configFile = path.join(appData, 'config.json');
 export function loadConfig(): IConfig {

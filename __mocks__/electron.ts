@@ -3,7 +3,6 @@ BrowserWindow.prototype.on = jest.fn();
 BrowserWindow.prototype.loadURL = jest.fn();
 BrowserWindow.prototype.show = jest.fn();
 BrowserWindow.prototype.setMenuBarVisibility = jest.fn();
-BrowserWindow.prototype.setAutoHideMenuBar = jest.fn();
 
 const Tray = jest.fn();
 Tray.prototype.on = jest.fn();
@@ -13,6 +12,7 @@ export = {
 	app: {
 		on: jest.fn(),
 		quit: jest.fn(),
+		getPath: jest.fn(() => ''),
 	},
 	BrowserWindow,
 	ipcRenderer: {
