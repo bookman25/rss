@@ -1,8 +1,8 @@
 module.exports = {
 	automock: true,
 	collectCoverageFrom: [
-		"**/*.ts",
-		"**/*.tsx",
+		"src/**/*.ts",
+		"src/**/*.tsx",
 		"!**/*.d.ts"
 	],
 	moduleFileExtensions: [
@@ -12,9 +12,10 @@ module.exports = {
 		"js",
 		"node"
 	],
+	modulePathIgnorePatterns: ["<rootDir>/github-feed-*"],
 	setupFilesAfterEnv: ["<rootDir>/testHelpers/environmentSetup.js"],
 	testEnvironment: "node",
-	testMatch: ['**/?(*.)+(spec|test).[t]s?(x)'],
+	testMatch: ['<rootDir>/src/**/*.(spec|test).[t]s?(x)'],
 	timers: "fake",
 	unmockedModulePathPatterns: [
 		"<rootDir>/testHelpers",

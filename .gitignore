@@ -16,5 +16,4 @@ jspm_packages
 src/**/*.js
 config.json
 
-dist/
 github-feed-*/

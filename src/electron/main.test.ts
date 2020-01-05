@@ -23,7 +23,7 @@ describe('main', () => {
 		app.on = jest.fn((event, callback) => {
 			if (event === 'ready') {
 				onReadyCallback = callback;
-			} else {
+			} else if (event === 'quit') {
 				onQuitCallback = callback;
 			}
 		});

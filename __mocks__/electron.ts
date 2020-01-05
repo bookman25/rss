@@ -13,6 +13,10 @@ module.exports = {
 		on: jest.fn(),
 		quit: jest.fn(),
 		getPath: jest.fn(() => ''),
+		dock: {
+			show: jest.fn(),
+			hide: jest.fn(),
+		},
 	},
 	BrowserWindow,
 	ipcRenderer: {
@@ -23,6 +27,9 @@ module.exports = {
 	},
 	Menu: {
 		buildFromTemplate: jest.fn(),
+	},
+	nativeImage: {
+		createFromPath: jest.fn(),
 	},
 	Tray,
 };
