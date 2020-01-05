@@ -13,7 +13,7 @@ jspm_packages
 # Optional npm cache directory
 .npm
 
-*.js
+src/**/*.js
 config.json
 
 dist/

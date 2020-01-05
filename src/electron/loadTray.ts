@@ -1,9 +1,10 @@
-import { Menu, Tray } from 'electron';
+import { Menu, Tray, nativeImage } from 'electron';
 import path from 'path';
 
 let tray: Electron.Tray;
 export function loadTray(editConfig: () => void, sendEmail: () => void, quit: () => void) {
-	tray = new Tray(path.resolve(__dirname, 'rss.ico'));
+	const image = nativeImage.createFromPath(path.resolve(__dirname, 'rss.png'));
+	tray = new Tray(image);
 	const menu = Menu.buildFromTemplate([
 		{
 			label: 'Send Email',

@@ -32,6 +32,8 @@ app.on('quit', () => {
 	}
 });
 
+app.on('before-quit', () => isQuiting = true);
+
 function updateSchedule() {
 	if (job) {
 		job.cancel();
@@ -48,6 +50,7 @@ function send() {
 function editConfig() {
 	if (mainWindow) {
 		mainWindow.show();
+		app.dock.show();
 		return;
 	}
 	mainWindow = new BrowserWindow({ 
@@ -67,6 +70,7 @@ function editConfig() {
 			if (!isQuiting) {
 				event.preventDefault();
 				mainWindow.hide();
+				app.dock.hide();
 			}
 		});
 

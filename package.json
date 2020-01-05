@@ -10,16 +10,12 @@
   "scripts": {
     "build": "babel src --out-dir src --extensions '.ts,.tsx'",
     "ci": "yarn lint && yarn tsc && yarn test --coverage && yarn coveralls",
-    "cleanfiles": "node scripts/clean",
     "coveralls": "minicat coverage/lcov.info | coveralls && rm -rf ./coverage",
     "lint": "tslint --exclude \"node_modules/**\" --exclude \"**/*.d.ts\" **/*.ts **/*.tsx",
-    "pack": "yarn build && build --dir",
     "package": "yarn build && electron-packager --overwrite .",
-    "dist": "yarn build && build --x64",
     "start": "yarn build && electron .",
     "test": "jest",
-    "tsc": "tsc",
-    "watch-test": "yarn test --watch"
+    "tsc": "tsc"
   },
   "author": "Bryan Nicholls",
   "license": "MIT",
@@ -29,7 +25,10 @@
   "build": {
     "appId": "github.feed",
     "win": {
-      "icon": "electron/rss.ico"
+      "icon": "src/electron/rss.ico"
+    },
+    "mac": {
+      "icon": "src/electron/rss.icns"
     }
   },
   "devDependencies": {
@@ -50,7 +49,6 @@
     "@types/react-dom": "*",
     "coveralls": "^2.11.15",
     "electron": "^7.1.7",
-    "electron-builder": "^19.33.0",
     "electron-packager": "^14.1.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",

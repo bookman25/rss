@@ -19,5 +19,9 @@ yarn test
 
 Package for install
 ```
-yarn dist
+Win:
+yarn package --icon src/electron/rss.ico
+
+Mac:
+yarn package --icon src/electron/rss.icns
 ```
